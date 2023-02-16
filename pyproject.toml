@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "multitenant_app"
+version = "0.1.0"
+description = "This is onboarding task for creating multitenant application for hotel table reservation"
+authors = ["Umair Ahmed <umairahmed515@gmail.com>"]
+readme = "README.md"
+packages = [{include = "multitenant_app"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.1.6"
+python-dotenv = "^0.21.1"
+django-tenants = "^3.4.8"
+psycopg2-binary = "^2.9.5"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+pytest-cov = "^4.0.0"
+pytest-django = "^4.5.2"
+pytest-xdist = "^3.1.0"
+black = {version = "^23.1.0", allow-prereleases = true}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

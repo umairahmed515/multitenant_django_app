@@ -1,0 +1,8 @@
+{
+    "DATABASE_ENGINE": "django.db.backends.postgresql",
+    "DATABASE_USER": "postgres",
+    "DATABASE_PASSWORD": "umair321",
+    "DATABASE_NAME": "cerclidb",
+    "DATABASE_HOST": "localhost",
+    "DATABASE_PORT": "5432"
+}

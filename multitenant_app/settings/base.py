@@ -32,16 +32,35 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+SHARED_APPS = [
+    "django_tenants",
+    "client",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "hotel_shared",
 ]
 
+TENANT_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "hotel_tenant",
+]
+
+INSTALLED_APPS = list(set(SHARED_APPS + TENANT_APPS))
+
+TENANT_MODEL = "client.Client"
+TENANT_DOMAIN_MODEL = "client.Domain"
+
 MIDDLEWARE = [
+    "django_tenants.middleware.main.TenantMainMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -52,6 +71,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "multitenant_app.urls"
+PUBLIC_SCHEMA_URLCONF = "multitenant_app.urls_public"
 
 TEMPLATES = [
     {
@@ -86,6 +106,7 @@ DATABASES = {
     },
 }
 
+DATABASE_ROUTERS = (DATABASE_TENANT_ROUTER,)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

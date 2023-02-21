@@ -1,8 +1,9 @@
 {
-    "DATABASE_ENGINE": "django.db.backends.postgresql",
+    "DATABASE_ENGINE": "django_tenants.postgresql_backend",
     "DATABASE_USER": "postgres",
     "DATABASE_PASSWORD": "umair321",
     "DATABASE_NAME": "cerclidb",
     "DATABASE_HOST": "localhost",
-    "DATABASE_PORT": "5432"
+    "DATABASE_PORT": "5432",
+    "DATABASE_TENANT_ROUTER": "django_tenants.routers.TenantSyncRouter"
 }

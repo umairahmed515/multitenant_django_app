@@ -21,3 +21,6 @@ class Hotel(models.Model):
         default=HotelTypes.THREE_STAR.value,
         unique=True,
     )
+
+    def __str__(self):
+        return f"{self.hotel_name}-{self.hotel_type}"
